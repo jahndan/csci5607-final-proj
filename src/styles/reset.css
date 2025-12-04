@@ -1,0 +1,359 @@
+/* This is a bunch of CSS reset styles, which are applied globally as more sensible defaults. */
+
+@layer reset {
+  /* reset box-sizing to border-box for all elements */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    text-decoration-thickness: var(--thick-0) !important;
+  }
+
+  /* fix scroll behavior for links using /some-page#header-id syntax */
+  [id] {
+    scroll-margin-top: var(--space-64);
+  }
+
+  :focus-visible {
+    border-radius: var(--radius-1);
+    outline: var(--thick-0) solid var(--color-primary-6);
+    outline-offset: var(--space-2);
+  }
+
+  ::selection {
+    background-color: oklch(from var(--color-secondary-5) l c h / 0.5);
+    color: var(--color-neutral-12);
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  body {
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    * {
+      scrollbar-color: var(--color-neutral-6) rgba(none none none / 0);
+    }
+    *:hover {
+      scrollbar-color: var(--color-neutral-8) rgba(none none none / 0);
+    }
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  article {
+    z-index: 0;
+    max-width: var(--max-page-width);
+    padding: var(--space-48) var(--space-32);
+    margin: 0 auto;
+    font-family: var(--font-body);
+    color: var(--color-neutral-11);
+    background-color: var(--color-neutral-1);
+
+    border-left: var(--thick-0) solid var(--color-neutral-7);
+    border-right: var(--thick-0) solid var(--color-neutral-7);
+
+    *:first-child {
+      margin-top: 0;
+    }
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* paragraph styles */
+
+  p {
+    text-wrap: pretty;
+    text-align: justify;
+    hyphens: auto;
+    margin-top: var(--paragraph-spacing);
+    margin-bottom: var(--paragraph-spacing);
+  }
+
+  /* heading styles */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    background: linear-gradient(
+      in oklch to bottom,
+      var(--color-primary-12) -50%,
+      var(--color-secondary-10) 250%
+    );
+    background-clip: text;
+    color: transparent;
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--space-40);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-top: var(--space-24);
+    margin-bottom: var(--space-24);
+  }
+  h2 {
+    font-size: var(--space-28);
+    letter-spacing: -0.015em;
+    line-height: 1.24;
+    margin-top: var(--space-18);
+    margin-bottom: var(--space-18);
+  }
+  h3 {
+    font-size: var(--space-24);
+    letter-spacing: -0.01em;
+    line-height: 1.28;
+    margin-top: var(--space-14);
+    margin-bottom: var(--space-14);
+  }
+  h4 {
+    font-size: var(--space-20);
+    letter-spacing: -0.005em;
+    line-height: 1.32;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-16);
+  }
+  h5 {
+    font-size: var(--space-18);
+    line-height: 1.36;
+    margin-top: var(--space-14);
+    margin-bottom: var(--space-14);
+  }
+  h6 {
+    font-size: var(--space-14);
+    letter-spacing: 0.005em;
+    line-height: 1.4;
+    margin-top: var(--space-14);
+    margin-bottom: var(--space-14);
+    text-transform: uppercase;
+  }
+
+  /* basic styles */
+
+  a {
+    color: var(--color-primary-11);
+  }
+  a:hover {
+    color: var(--color-secondary-11);
+  }
+
+  mark {
+    background-color: var(--color-primary-4);
+    color: inherit;
+    padding: 0 var(--space-1);
+    border-radius: var(--radius-2);
+  }
+
+  del {
+    text-decoration: line-through;
+    color: var(--color-neutral-10);
+  }
+  a {
+    del {
+      color: var(--color-primary-10);
+    }
+  }
+  a:hover {
+    del {
+      color: var(--color-secondary-10);
+    }
+  }
+
+  small {
+    font-size: 0.75em;
+    color: var(--color-neutral-10);
+  }
+  a {
+    small {
+      color: var(--color-primary-10);
+    }
+  }
+  a:hover {
+    small {
+      color: var(--color-secondary-10);
+    }
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background-color: var(--color-neutral-9);
+    margin-top: var(--space-24);
+    margin-bottom: var(--space-24);
+  }
+
+  /* list styles */
+
+  ul {
+    list-style-type: circle;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  ul,
+  ol {
+    padding-left: var(--space-32);
+    margin-top: var(--paragraph-spacing);
+    margin-bottom: var(--paragraph-spacing);
+  }
+  li {
+    margin-bottom: var(--space-2);
+    margin-top: var(--space-2);
+  }
+
+  /* table styles */
+
+  table {
+    --table-radius: var(--radius-2);
+    font-size: 15px;
+    margin: var(--paragraph-spacing) auto;
+    overflow: scroll;
+    box-shadow: var(--shadow);
+    border: var(--thick-0) solid var(--color-neutral-6);
+    border-radius: var(--table-radius);
+    padding: var(--space-2) var(--space-1);
+    td {
+      vertical-align: top;
+      border-radius: var(--table-radius);
+      padding: var(--space-4) var(--space-8);
+    }
+  }
+  table:has(th:not(:empty)) {
+    /* headered table styles */
+    th {
+      font-size: 0.875em;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      border-radius: var(--table-radius);
+      padding: var(--space-4) var(--space-8);
+    }
+  }
+  table:not(:has(th:not(:empty))) {
+    /* headerless table styles */
+    thead {
+      display: none;
+    }
+  }
+  th:hover,
+  td:hover {
+    background-color: var(--color-primary-3);
+  }
+
+  /* other styles */
+
+  img,
+  iframe {
+    max-height: 75svh;
+    height: auto;
+    width: 100%;
+    margin-top: var(--block-spacing);
+    margin-bottom: var(--block-spacing);
+    border: var(--thick-0) solid var(--color-neutral-6);
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow);
+  }
+
+  blockquote {
+    border-left: var(--thick-2) solid var(--color-primary-8);
+    border-radius: 0 var(--radius-3) var(--radius-3) 0;
+    padding: 0 var(--space-14);
+    margin-top: var(--block-spacing);
+    margin-bottom: var(--block-spacing);
+    box-shadow: var(--shadow);
+    font-style: italic;
+    color: var(--color-neutral-10);
+
+    em {
+      /* revert italics for emphasized text */
+      font-style: normal;
+    }
+  }
+
+  /* pre/code styles */
+
+  code {
+    font-family: var(--font-monospace);
+    font-size: 0.8125rem;
+    color: var(--color-neutral-11);
+    background-color: var(--color-neutral-2);
+    border: var(--thick-0) dashed var(--color-neutral-7);
+    border-radius: var(--radius-2);
+    padding: var(--space-2) var(--space-4);
+    white-space: nowrap;
+  }
+  pre {
+    font-family: var(--font-monospace);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--color-neutral-12);
+    background-color: var(--color-neutral-2);
+    border: var(--thick-0) solid var(--color-neutral-7);
+    border-radius: var(--radius-3);
+    padding: var(--space-24);
+    margin-top: var(--block-spacing);
+    margin-bottom: var(--block-spacing);
+    overflow-x: auto;
+    tab-size: 2;
+    box-shadow: var(--shadow);
+
+    code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: inherit;
+      white-space: pre;
+      color: inherit;
+    }
+  }
+
+  .dark {
+    .astro-code,
+    .astro-code span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+      /* Optional, if you also want font styles */
+      font-style: var(--shiki-dark-font-style) !important;
+      font-weight: var(--shiki-dark-font-weight) !important;
+      text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
+  }
+}

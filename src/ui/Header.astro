@@ -1,0 +1,115 @@
+---
+import Logo from "/src/ui/Logo.astro";
+import NavigationHamburger from "/src/ui/NavigationHamburger.astro";
+import ThemeSwitcher from "/src/ui/ThemeSwitcher.astro";
+
+const { current, navigation } = Astro.props;
+---
+
+<header>
+  <div id="header">
+    <div class="logo">
+      <a>
+        <Logo />
+      </a>
+    </div>
+    <div id="buttons">
+      <ThemeSwitcher >
+    </div>
+    <nav id="navMenu">
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    font-family: var(--font-body);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: oklch(from var(--color-neutral-1) l c h / 0.75);
+    backdrop-filter: blur(var(--space-12));
+    border-bottom: var(--thick-0) solid var(--color-neutral-8);
+    box-shadow: var(--shadow);
+  }
+
+  #header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: var(--space-8) var(--space-12);
+    margin: auto;
+    max-width: var(--max-page-width);
+  }
+
+  @media(max-width: 400px) {
+    #header {
+      grid-template-columns: 1fr auto;
+    }
+  }
+
+  .logo {
+    order: 0;
+    padding: var(--space-4);
+    border-radius: var(--radius-2);
+    text-decoration: none;
+    display: flex;
+    gap: var(--space-12);
+
+    svg {
+      border: none;
+      aspect-ratio: 1 / 1;
+      height: var(--space-32);
+      margin-bottom: -1pt;
+    }
+  }
+
+  nav {
+    order: 0;
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: var(--space-24);
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+      border-radius: var(--radius-2);
+      padding: var(--space-6);
+      color: var(--color-primary-11);
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: var(--color-neutral-3);
+      color: var(--color-secondary-11);
+    }
+  }
+
+  @media(max-width: 400px) {
+    nav {
+      order: 1;
+      ul {
+        display: none;
+      }
+    }
+
+    nav[open] {
+      grid-column: 1 / -1;
+      ul {
+        display: block;
+      }
+    }
+  }
+
+  #buttons {
+    order: 1;
+    display: flex;
+    justify-self: end;
+    align-items: center;
+    gap: var(--space-12);
+  }
+</style>

@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
+    "@daiji256/rehype-mathml": "^1.2.1",
     "astro": "^5.16.4",
+    "remark-math": "^6.0.0",
     "wrangler": "^4.52.1"
   }
 }

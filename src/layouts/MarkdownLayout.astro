@@ -1,0 +1,12 @@
+---
+import "/src/styles/math.css";
+import CommonLayout from "/src/layouts/CommonLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<CommonLayout frontmatter={frontmatter}>
+  <article>
+    <slot />
+  </article>
+</CommonLayout>
